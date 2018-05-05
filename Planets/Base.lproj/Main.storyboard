@@ -29,7 +29,7 @@
                                 <state key="normal" image="icons8-scroll-up-96"/>
                                 <connections>
                                     <segue destination="O5v-78-01z" kind="popoverPresentation" identifier="PopView" popoverAnchorView="AFQ-7J-pnN" id="rNF-KJ-Kwa">
-                                        <popoverArrowDirection key="popoverArrowDirection"/>
+                                        <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                                     </segue>
                                 </connections>
                             </button>
@@ -53,77 +53,112 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
-        <!--View Controller-->
+        <!--Pop View Controlere View Controller-->
         <scene sceneID="Sz9-Kx-sd2">
             <objects>
-                <viewController id="O5v-78-01z" sceneMemberID="viewController">
+                <viewController id="O5v-78-01z" customClass="PopViewControlereViewController" customModule="Planets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yvE-xU-OGi">
-                        <rect key="frame" x="0.0" y="0.0" width="40" height="260"/>
+                        <rect key="frame" x="0.0" y="0.0" width="40" height="310"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGg-jd-1pO">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGg-jd-1pO">
                                 <rect key="frame" x="5" y="10" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="auI-Rn-PJv"/>
                                     <constraint firstAttribute="width" constant="30" id="zhK-bd-vdz"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="icons8-1-96"/>
+                                <connections>
+                                    <action selector="no1Action:" destination="O5v-78-01z" eventType="touchUpInside" id="loe-ei-V6M"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3I6-tu-i7v">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3I6-tu-i7v">
                                 <rect key="frame" x="5" y="40" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ZdL-Os-Bet"/>
                                     <constraint firstAttribute="width" constant="30" id="lMN-12-5xi"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="icons8-2-96"/>
+                                <connections>
+                                    <action selector="no1Action:" destination="O5v-78-01z" eventType="touchUpInside" id="7fn-uy-QFe"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AfL-w4-set">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AfL-w4-set">
                                 <rect key="frame" x="5" y="70" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="IWj-fP-KBN"/>
                                     <constraint firstAttribute="width" constant="30" id="z0f-DE-4Wy"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="icons8-3-96"/>
+                                <connections>
+                                    <action selector="no1Action:" destination="O5v-78-01z" eventType="touchUpInside" id="Wo5-cM-llV"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVJ-ko-8v6">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVJ-ko-8v6">
                                 <rect key="frame" x="5" y="100" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="6jT-nM-HcZ"/>
                                     <constraint firstAttribute="width" constant="30" id="eJN-Zs-99g"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="icons8-4-96"/>
+                                <connections>
+                                    <action selector="no1Action:" destination="O5v-78-01z" eventType="touchUpInside" id="oOa-27-8kM"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1p-vS-y8M">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1p-vS-y8M">
                                 <rect key="frame" x="5" y="130" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="LYZ-Me-bDv"/>
                                     <constraint firstAttribute="width" constant="30" id="XdW-g8-l4i"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="icons8-5-96"/>
+                                <connections>
+                                    <action selector="no1Action:" destination="O5v-78-01z" eventType="touchUpInside" id="0s6-vL-nkJ"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgv-Lk-AUf">
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgv-Lk-AUf">
                                 <rect key="frame" x="5" y="160" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="C7N-XD-lUv"/>
                                     <constraint firstAttribute="height" constant="30" id="tII-JQ-ZdU"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="icons8-6-96"/>
+                                <connections>
+                                    <action selector="no1Action:" destination="O5v-78-01z" eventType="touchUpInside" id="gzL-AQ-sI5"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTv-8a-GD9">
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTv-8a-GD9">
                                 <rect key="frame" x="5" y="190" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="hAA-85-OdJ"/>
                                     <constraint firstAttribute="height" constant="30" id="iKR-dS-ivS"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="icons8-7-96"/>
+                                <connections>
+                                    <action selector="no1Action:" destination="O5v-78-01z" eventType="touchUpInside" id="WCM-V9-RIX"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ng-SL-kPG">
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ng-SL-kPG">
                                 <rect key="frame" x="5" y="220" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="2di-Q3-tJB"/>
                                     <constraint firstAttribute="width" constant="30" id="C1C-qx-SW3"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="icons8-8-96"/>
+                                <connections>
+                                    <action selector="no1Action:" destination="O5v-78-01z" eventType="touchUpInside" id="CKS-5R-ZQj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zn5-OF-PgZ">
+                                <rect key="frame" x="5" y="250" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="BgN-tO-TSK"/>
+                                    <constraint firstAttribute="height" constant="30" id="xna-kg-85K"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="icons8-exercise-50"/>
+                                <connections>
+                                    <action selector="no1Action:" destination="O5v-78-01z" eventType="touchUpInside" id="zhz-xt-iec"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -137,8 +172,10 @@
                             <constraint firstItem="Fgv-Lk-AUf" firstAttribute="centerX" secondItem="yvE-xU-OGi" secondAttribute="centerX" id="SQo-qX-QRD"/>
                             <constraint firstItem="lVJ-ko-8v6" firstAttribute="centerX" secondItem="yvE-xU-OGi" secondAttribute="centerX" id="TNF-mM-b5S"/>
                             <constraint firstItem="YGg-jd-1pO" firstAttribute="centerX" secondItem="yvE-xU-OGi" secondAttribute="centerX" id="Vmp-sj-czr"/>
+                            <constraint firstItem="zn5-OF-PgZ" firstAttribute="centerX" secondItem="yvE-xU-OGi" secondAttribute="centerX" id="WeV-u2-DM9"/>
                             <constraint firstItem="3I6-tu-i7v" firstAttribute="top" secondItem="YGg-jd-1pO" secondAttribute="bottom" id="ZAp-M0-9gw"/>
                             <constraint firstItem="lVJ-ko-8v6" firstAttribute="top" secondItem="AfL-w4-set" secondAttribute="bottom" id="cra-d3-qA2"/>
+                            <constraint firstItem="zn5-OF-PgZ" firstAttribute="top" secondItem="4Ng-SL-kPG" secondAttribute="bottom" id="gbV-ih-GNS"/>
                             <constraint firstItem="AfL-w4-set" firstAttribute="top" secondItem="3I6-tu-i7v" secondAttribute="bottom" id="hBp-Cx-ReS"/>
                             <constraint firstItem="Fgv-Lk-AUf" firstAttribute="top" secondItem="V1p-vS-y8M" secondAttribute="bottom" id="iHZ-qv-ZiP"/>
                             <constraint firstItem="dTv-8a-GD9" firstAttribute="centerX" secondItem="yvE-xU-OGi" secondAttribute="centerX" id="jCe-9n-n3a"/>
@@ -147,7 +184,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="l9X-xc-5FD"/>
                     </view>
-                    <size key="freeformSize" width="40" height="260"/>
+                    <size key="freeformSize" width="40" height="310"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAq-71-4y2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,6 +200,7 @@
         <image name="icons8-6-96" width="96" height="96"/>
         <image name="icons8-7-96" width="96" height="96"/>
         <image name="icons8-8-96" width="96" height="96"/>
+        <image name="icons8-exercise-50" width="50" height="50"/>
         <image name="icons8-scroll-up-96" width="96" height="96"/>
     </resources>
 </document>

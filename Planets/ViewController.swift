@@ -1,6 +1,6 @@
 import UIKit
 import ARKit
-class ViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, PopDelegate {
     
     let positionArray : [CGFloat] = [0.7, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.4, 0.25]
     let radiusArray : [CGFloat]  = []
@@ -24,11 +24,81 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
         self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
         self.sceneView.session.run(configuration)
         self.sceneView.autoenablesDefaultLighting = true
+        runSystem()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(sender:)))
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
         self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
-        
+    }
+    
+    func tabNumber(number: Int) {
+        if number == 1 {
+            sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+                node.removeFromParentNode()
+            }
+            let mercury = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "8k_mercury"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+            sceneView.scene.rootNode.addChildNode(mercury)
+        }
+        else if number == 2 {
+            sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+                node.removeFromParentNode()
+            }
+            let venus = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "Venus Surface"), specular: nil, emission: #imageLiteral(resourceName: "Venus Atmosphere"), normal: nil, position: SCNVector3(0, 0, 0))
+            sceneView.scene.rootNode.addChildNode(venus)
+        }
+        else if number == 3 {
+            sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+                node.removeFromParentNode()
+            }
+            let earth = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "Earth day"), specular: #imageLiteral(resourceName: "Earth Specular"), emission: #imageLiteral(resourceName: "Earth Emission"), normal: #imageLiteral(resourceName: "Earth Normal"), position: SCNVector3(0 ,0 , 0))
+
+            sceneView.scene.rootNode.addChildNode(earth)
+        }
+        else if number == 4 {
+            sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+                node.removeFromParentNode()
+            }
+            let mars = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "8k_mars"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+            
+            sceneView.scene.rootNode.addChildNode(mars)
+        }
+        else if number == 5 {
+            sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+                node.removeFromParentNode()
+            }
+            let jupiter = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "8k_jupiter"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+
+            sceneView.scene.rootNode.addChildNode(jupiter)
+        }
+        else if number == 6 {
+            sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+                node.removeFromParentNode()
+            }
+            let saturn = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "8k_saturn"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+            
+            sceneView.scene.rootNode.addChildNode(saturn)
+        }
+        else if number == 7 {
+            sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+                node.removeFromParentNode()
+            }
+            let uranus = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "2k_uranus"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+
+            sceneView.scene.rootNode.addChildNode(uranus)
+        }
+        else if number == 8 {
+            sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+                node.removeFromParentNode()
+            }
+            let neptune = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "2k_neptune"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+            sceneView.scene.rootNode.addChildNode(neptune)
+        }
+        else if number == 0 {
+            sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+                node.removeFromParentNode()
+            }
+            runSystem()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,6 +106,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
             let popVC = segue.destination
             popVC.popoverPresentationController?.delegate = self
             popVC.preferredContentSize = CGSize(width: 40, height: 270)
+            let popDataVC = segue.destination as! PopViewControlereViewController
+            popDataVC.delegateData = self
         }
     }
     
@@ -76,7 +148,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
     
     
     
-    override func viewDidAppear(_ animated: Bool) {
+//    override func viewDidAppear(_ animated: Bool) {
+    func runSystem() {
         let sun = SCNNode(geometry: SCNSphere(radius: 0.35))
         let mercuryParent = SCNNode()
         let venusParent = SCNNode()
@@ -118,7 +191,6 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate 
         let venusTorus =  torus(geometry: SCNTorus(ringRadius: positionArray[1], pipeRadius: pipeRadiusValue), diffuse: nil)
         let earth = planet(geometry: SCNSphere(radius: 0.1), diffuse: #imageLiteral(resourceName: "Earth day"), specular: #imageLiteral(resourceName: "Earth Specular"), emission: #imageLiteral(resourceName: "Earth Emission"), normal: #imageLiteral(resourceName: "Earth Normal"), position: SCNVector3(positionArray[2] ,0 , 0))
         let earthTorus = torus(geometry: SCNTorus(ringRadius: positionArray[2], pipeRadius: pipeRadiusValue), diffuse: nil)
-        
         let mars = planet(geometry: SCNSphere(radius: 0.06), diffuse: #imageLiteral(resourceName: "8k_mars"), specular: nil, emission: nil, normal: nil, position: SCNVector3(positionArray[3],0,0))
         let marsTorus =  torus(geometry: SCNTorus(ringRadius: positionArray[3], pipeRadius: pipeRadiusValue), diffuse: nil)
         let jupiter = planet(geometry: SCNSphere(radius: 0.35), diffuse: #imageLiteral(resourceName: "8k_jupiter"), specular: nil, emission: nil, normal: nil, position: SCNVector3(positionArray[4],0,0))
