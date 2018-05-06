@@ -19,7 +19,4 @@ class PopViewControlereViewController: UIViewController {
         delegateData?.tabNumber(number: sender.tag)
     }
     
-    
-    
-    
 }

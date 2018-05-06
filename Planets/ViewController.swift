@@ -36,62 +36,91 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
                 node.removeFromParentNode()
             }
-            let mercury = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "8k_mercury"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+            let mercury = planet(geometry: SCNSphere(radius: 0.3), diffuse: #imageLiteral(resourceName: "8k_mercury"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+            let mercuryText = text(geometry: SCNText(string: textArray[0], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.5,0.07,0))
+            let mercuryTextC = textChild(geometry: SCNText(string: textArrayC[0], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.6,-0.17,0))
             sceneView.scene.rootNode.addChildNode(mercury)
+            sceneView.scene.rootNode.addChildNode(mercuryText)
+            sceneView.scene.rootNode.addChildNode(mercuryTextC)
         }
         else if number == 2 {
             sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
                 node.removeFromParentNode()
             }
-            let venus = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "Venus Surface"), specular: nil, emission: #imageLiteral(resourceName: "Venus Atmosphere"), normal: nil, position: SCNVector3(0, 0, 0))
+            let venus = planet(geometry: SCNSphere(radius: 0.3), diffuse: #imageLiteral(resourceName: "Venus Surface"), specular: nil, emission: #imageLiteral(resourceName: "Venus Atmosphere"), normal: nil, position: SCNVector3(0, 0, 0))
+            let venusText = text(geometry: SCNText(string: textArray[1], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.5,0.11,0))
+            let venusTextC = textChild(geometry: SCNText(string: textArrayC[1], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.6,-0.11,0))
+            
             sceneView.scene.rootNode.addChildNode(venus)
+            sceneView.scene.rootNode.addChildNode(venusTextC)
+            sceneView.scene.rootNode.addChildNode(venusText)
         }
         else if number == 3 {
             sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
                 node.removeFromParentNode()
             }
-            let earth = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "Earth day"), specular: #imageLiteral(resourceName: "Earth Specular"), emission: #imageLiteral(resourceName: "Earth Emission"), normal: #imageLiteral(resourceName: "Earth Normal"), position: SCNVector3(0 ,0 , 0))
-
+            let earth = planet(geometry: SCNSphere(radius: 0.3), diffuse: #imageLiteral(resourceName: "Earth day"), specular: #imageLiteral(resourceName: "Earth Specular"), emission: #imageLiteral(resourceName: "Earth Emission"), normal: #imageLiteral(resourceName: "Earth Normal"), position: SCNVector3(0 ,0 , 0))
+            
+            let earthText = text(geometry: SCNText(string: textArray[2], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.5,0.11,0))
+            let earthTextC = textChild(geometry: SCNText(string: textArrayC[2], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.6,-0.11,0))
             sceneView.scene.rootNode.addChildNode(earth)
+            sceneView.scene.rootNode.addChildNode(earthText)
+            sceneView.scene.rootNode.addChildNode(earthTextC)
         }
         else if number == 4 {
             sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
                 node.removeFromParentNode()
             }
-            let mars = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "8k_mars"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
-            
+            let mars = planet(geometry: SCNSphere(radius: 0.3), diffuse: #imageLiteral(resourceName: "8k_mars"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+            let marsText = text(geometry: SCNText(string: textArray[3], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.5,0.07,0))
+            let marsTextC = textChild(geometry: SCNText(string: textArrayC[3], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.6,-0.17,0))
             sceneView.scene.rootNode.addChildNode(mars)
+            sceneView.scene.rootNode.addChildNode(marsText)
+            sceneView.scene.rootNode.addChildNode(marsTextC)
         }
         else if number == 5 {
             sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
                 node.removeFromParentNode()
             }
-            let jupiter = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "8k_jupiter"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
-
+            let jupiter = planet(geometry: SCNSphere(radius: 0.3), diffuse: #imageLiteral(resourceName: "8k_jupiter"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+            let jupiterText = text(geometry: SCNText(string: textArray[4], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.5,0.36,0))
+            let jupiterTextC = textChild(geometry: SCNText(string: textArrayC[4], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.6,0.16,0))
             sceneView.scene.rootNode.addChildNode(jupiter)
+            sceneView.scene.rootNode.addChildNode(jupiterText)
+            sceneView.scene.rootNode.addChildNode(jupiterTextC)
         }
         else if number == 6 {
             sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
                 node.removeFromParentNode()
             }
-            let saturn = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "8k_saturn"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
-            
+            let saturn = planet(geometry: SCNSphere(radius: 0.3), diffuse: #imageLiteral(resourceName: "8k_saturn"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+            let saturnText = text(geometry: SCNText(string: textArray[5], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.5,0.31,0))
+            let saturnTextC = textChild(geometry: SCNText(string: textArrayC[5], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.6,0.11,0))
             sceneView.scene.rootNode.addChildNode(saturn)
+            sceneView.scene.rootNode.addChildNode(saturnText)
+            sceneView.scene.rootNode.addChildNode(saturnTextC)
         }
         else if number == 7 {
             sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
                 node.removeFromParentNode()
             }
-            let uranus = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "2k_uranus"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
-
+            let uranus = planet(geometry: SCNSphere(radius: 0.3), diffuse: #imageLiteral(resourceName: "2k_uranus"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+            let uranusText = text(geometry: SCNText(string: textArray[6], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.5,0.26,0))
+            let uranusTextC = textChild(geometry: SCNText(string: textArrayC[6], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.6,0.06,0))
             sceneView.scene.rootNode.addChildNode(uranus)
+            sceneView.scene.rootNode.addChildNode(uranusText)
+            sceneView.scene.rootNode.addChildNode(uranusTextC)
         }
         else if number == 8 {
             sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
                 node.removeFromParentNode()
             }
-            let neptune = planet(geometry: SCNSphere(radius: 0.5), diffuse: #imageLiteral(resourceName: "2k_neptune"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+            let neptune = planet(geometry: SCNSphere(radius: 0.3), diffuse: #imageLiteral(resourceName: "2k_neptune"), specular: nil, emission: nil, normal: nil, position: SCNVector3(0,0,0))
+            let neptuneText = text(geometry: SCNText(string: textArray[7], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.5,0.26,0))
+            let neptuneTextC = textChild(geometry: SCNText(string: textArrayC[7], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(0.6,0.06,0))
             sceneView.scene.rootNode.addChildNode(neptune)
+            sceneView.scene.rootNode.addChildNode(neptuneText)
+            sceneView.scene.rootNode.addChildNode(neptuneTextC)
         }
         else if number == 0 {
             sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
@@ -105,7 +134,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         if segue.identifier == "PopView" {
             let popVC = segue.destination
             popVC.popoverPresentationController?.delegate = self
-            popVC.preferredContentSize = CGSize(width: 40, height: 270)
+            popVC.preferredContentSize = CGSize(width: 30, height: 300)
             let popDataVC = segue.destination as! PopViewControlereViewController
             popDataVC.delegateData = self
         }
@@ -140,7 +169,6 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             let results = hitTest.first!
             let node = results.node
             let pinchAction = SCNAction.scale(by: sender.scale, duration: 0)
-            print(sender.scale)
             node.runAction(pinchAction)
             sender.scale = 1.0
         }
@@ -148,7 +176,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     
     
-//    override func viewDidAppear(_ animated: Bool) {
+    //    override func viewDidAppear(_ animated: Bool) {
     func runSystem() {
         let sun = SCNNode(geometry: SCNSphere(radius: 0.35))
         let mercuryParent = SCNNode()
@@ -161,8 +189,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         let neptuneParent = SCNNode()
         let moonParent = SCNNode()
         
-//        sun.light = SCNLight()
-//        sun.light?.type = SCNLight.LightType.ambient
+        //        sun.light = SCNLight()
+        //        sun.light?.type = SCNLight.LightType.ambient
         sun.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "Sun diffuse")
         sun.position = SCNVector3(0,0,-1)
         mercuryParent.position = SCNVector3(0,0,-1)
@@ -213,7 +241,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         let saturnText = text(geometry: SCNText(string: textArray[5], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(positionArray[5],0.31,0))
         let uranusText = text(geometry: SCNText(string: textArray[6], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(positionArray[6],0.26,0))
         let neptuneText = text(geometry: SCNText(string: textArray[7], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(positionArray[7],0.26,0))
- 
+        
         let mercuryTextC = textChild(geometry: SCNText(string: textArrayC[0], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(positionArray[0]+0.05,-0.17,0))
         let venusTextC = textChild(geometry: SCNText(string: textArrayC[1], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(positionArray[1]+0.1,-0.11,0))
         let earthTextC = textChild(geometry: SCNText(string: textArrayC[2], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(positionArray[2]+0.1,-0.11,0))
@@ -222,7 +250,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         let saturnTextC = textChild(geometry: SCNText(string: textArrayC[5], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(positionArray[5]+0.3,0.11,0))
         let uranusTextC = textChild(geometry: SCNText(string: textArrayC[6], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(positionArray[6]+0.25,0.06,0))
         let neptuneTextC = textChild(geometry: SCNText(string: textArrayC[7], extrusionDepth: 1), diffuse: UIColor.red, position: SCNVector3(positionArray[7]+0.25,0.06,0))
-//MARK: ------------------------------------------------ Rotation-------------------------------------------------------------------------
+        //MARK: ------------------------------------------------ Rotation-------------------------------------------------------------------------
         
         let sunAction = Rotation(time: 8)
         
@@ -246,7 +274,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         neptuneParent.runAction(Rotation(time: timeArray[7]))
         moonParent.runAction(Rotation(time: timeArray[8]))
         
-//MARK: - -----------------------------------------------Add childNode ---------------------------------------------------------
+        //MARK: - -----------------------------------------------Add childNode ---------------------------------------------------------
         sun.runAction(sunAction)
         sun.addChildNode(earthTorus)
         sun.addChildNode(venusTorus)
@@ -277,7 +305,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         neptuneParent.addChildNode(neptuneText)
         earth.addChildNode(moonParent)
         moonParent.addChildNode(moonTorus)
-       // moonParent.addChildNode(moonText)
+        // moonParent.addChildNode(moonText)
         moonParent.addChildNode(moon)
         
         mercuryParent.addChildNode(mercuryTextC)
@@ -328,16 +356,6 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         text.isHidden = true
         return text
     }
-    
-//    func textChildTry() -> SCNText {
-//        let text = SCNText(string: "Hello", extrusionDepth: 0.1)
-//        text.firstMaterial?.diffuse.contents = UIColor.orange
-//        text.position =
-//        text.scale = SCNVector3(0.004, 0.004, 0.004)
-//        text.name = "text"
-//        text.isHidden = true
-//        return text
-//    }
     
     
     func Rotation(time: TimeInterval) -> SCNAction {
