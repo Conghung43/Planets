@@ -12,6 +12,7 @@
 		0BFBFC561F3AF5D5001C51C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BFBFC541F3AF5D5001C51C9 /* Main.storyboard */; };
 		0BFBFC581F3AF5D5001C51C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BFBFC571F3AF5D5001C51C9 /* Assets.xcassets */; };
 		0BFBFC5B1F3AF5D5001C51C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BFBFC591F3AF5D5001C51C9 /* LaunchScreen.storyboard */; };
+		2ABAAD9D209F430A003DF2D8 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABAAD9C209F430A003DF2D8 /* CameraController.swift */; };
 		2AC8C439209D9AC70097AF77 /* PopViewControlereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8C438209D9AC70097AF77 /* PopViewControlereViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		0BFBFC571F3AF5D5001C51C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BFBFC5A1F3AF5D5001C51C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BFBFC5C1F3AF5D5001C51C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ABAAD9C209F430A003DF2D8 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		2AC8C438209D9AC70097AF77 /* PopViewControlereViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewControlereViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +60,7 @@
 			children = (
 				0BFBFC501F3AF5D5001C51C9 /* AppDelegate.swift */,
 				0BFBFC521F3AF5D5001C51C9 /* ViewController.swift */,
+				2ABAAD9C209F430A003DF2D8 /* CameraController.swift */,
 				2AC8C438209D9AC70097AF77 /* PopViewControlereViewController.swift */,
 				0BFBFC541F3AF5D5001C51C9 /* Main.storyboard */,
 				0BFBFC571F3AF5D5001C51C9 /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 			files = (
 				0BFBFC531F3AF5D5001C51C9 /* ViewController.swift in Sources */,
 				2AC8C439209D9AC70097AF77 /* PopViewControlereViewController.swift in Sources */,
+				2ABAAD9D209F430A003DF2D8 /* CameraController.swift in Sources */,
 				0BFBFC511F3AF5D5001C51C9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

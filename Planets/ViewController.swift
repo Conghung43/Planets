@@ -2,6 +2,12 @@ import UIKit
 import ARKit
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, PopDelegate {
     
+    let cameraController = CameraController()
+    
+    @IBOutlet fileprivate var captureButton: UIButton!
+    @IBOutlet fileprivate var capturePreviewView: UIView!
+    override var prefersStatusBarHidden: Bool { return true }
+    
     let positionArray : [CGFloat] = [0.7, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.4, 0.25]
     let radiusArray : [CGFloat]  = []
     let timechildArray : [TimeInterval] = [10, 11, 12, 13, 14, 15, 16, 17, 5]
@@ -29,6 +35,29 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(sender:)))
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
         self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
+        
+        
+        func configureCameraController() {
+            cameraController.prepare {(error) in
+                if let error = error {
+                    print(error)
+                }
+                
+                try? self.cameraController.displayPreview(on: self.capturePreviewView)
+            }
+        }
+        
+        func styleCaptureButton() {
+            captureButton.layer.borderColor = UIColor.black.cgColor
+            captureButton.layer.borderWidth = 2
+            
+            captureButton.layer.cornerRadius = min(captureButton.frame.width, captureButton.frame.height) / 2
+        }
+        
+        styleCaptureButton()
+        configureCameraController()
+        
+        
     }
     
     func tabNumber(number: Int) {
