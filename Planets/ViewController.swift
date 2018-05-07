@@ -1,12 +1,12 @@
 import UIKit
 import ARKit
+import Photos
+import ARVideoKit
+
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, PopDelegate {
     
-    let cameraController = CameraController()
-    
-    @IBOutlet fileprivate var captureButton: UIButton!
-    @IBOutlet fileprivate var capturePreviewView: UIView!
-    override var prefersStatusBarHidden: Bool { return true }
+    var recorder:RecordAR?
+    var turn : Bool = true
     
     let positionArray : [CGFloat] = [0.7, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.4, 0.25]
     let radiusArray : [CGFloat]  = []
@@ -36,30 +36,10 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
         self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
         
-        
-        func configureCameraController() {
-            cameraController.prepare {(error) in
-                if let error = error {
-                    print(error)
-                }
-                
-                try? self.cameraController.displayPreview(on: self.capturePreviewView)
-            }
-        }
-        
-        func styleCaptureButton() {
-            captureButton.layer.borderColor = UIColor.black.cgColor
-            captureButton.layer.borderWidth = 2
-            
-            captureButton.layer.cornerRadius = min(captureButton.frame.width, captureButton.frame.height) / 2
-        }
-        
-        styleCaptureButton()
-        configureCameraController()
-        
+        recorder = RecordAR(ARSceneKit: sceneView)
         
     }
-    
+        
     func tabNumber(number: Int) {
         if number == 1 {
             sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
@@ -203,9 +183,22 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         }
     }
     
-    
-    
-    //    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        //let configuration = ARWorldTrackingConfiguration()
+        recorder?.prepare(configuration)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        recorder?.rest()
+    }
+    @IBAction func startRecording(_ sender: UIButton) {
+        if turn == true {
+        recorder?.record()
+            turn = false
+        }
+        else {
+        recorder?.stopAndExport()
+        }
+    }
     func runSystem() {
         let sun = SCNNode(geometry: SCNSphere(radius: 0.35))
         let mercuryParent = SCNNode()

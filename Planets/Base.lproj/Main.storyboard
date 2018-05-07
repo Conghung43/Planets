@@ -33,15 +33,29 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKA-6A-2qH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKA-6A-2qH">
                                 <rect key="frame" x="157" y="587" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HzB-Lz-Rtz"/>
+                                    <constraint firstAttribute="width" constant="60" id="hbr-qh-Mdk"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="icons8-round-512"/>
+                                <connections>
+                                    <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZx-DT-QiT"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4c-Ss-Ha2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4c-Ss-Ha2">
                                 <rect key="frame" x="319" y="607" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="lZP-qk-RVE"/>
+                                    <constraint firstAttribute="width" constant="40" id="pk5-QD-7EH"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="icons8-picture-512"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6t-8F-knJ">
+                                <rect key="frame" x="329" y="549" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="icons8-flash-on-100"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,14 +64,16 @@
                             <constraint firstItem="AFQ-7J-pnN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="99w-NS-uzD"/>
                             <constraint firstItem="485-Hb-ZWI" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="9hZ-FL-Rae"/>
                             <constraint firstItem="485-Hb-ZWI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IY7-IP-nfp"/>
+                            <constraint firstItem="gKA-6A-2qH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rji-D8-5aW"/>
                             <constraint firstItem="485-Hb-ZWI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TeX-Nb-z4I"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AFQ-7J-pnN" secondAttribute="bottom" constant="20" id="Uly-wC-FIz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gKA-6A-2qH" secondAttribute="bottom" constant="20" id="YkQ-qc-jMl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o4c-Ss-Ha2" secondAttribute="bottom" constant="20" id="bXG-EM-ea1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o4c-Ss-Ha2" secondAttribute="trailing" constant="16" id="te5-yz-Ohr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="captureButton" destination="gKA-6A-2qH" id="DKA-4a-mOc"/>
-                        <outlet property="capturePreviewView" destination="o4c-Ss-Ha2" id="91D-mX-ENc"/>
                         <outlet property="sceneView" destination="485-Hb-ZWI" id="DM6-jN-X3R"/>
                     </connections>
                 </viewController>
@@ -212,6 +228,7 @@
         <image name="icons8-7-96" width="96" height="96"/>
         <image name="icons8-8-96" width="96" height="96"/>
         <image name="icons8-exercise-50" width="50" height="50"/>
+        <image name="icons8-flash-on-100" width="100" height="100"/>
         <image name="icons8-picture-512" width="512" height="512"/>
         <image name="icons8-round-512" width="512" height="512"/>
         <image name="icons8-scroll-up-96" width="96" height="96"/>
