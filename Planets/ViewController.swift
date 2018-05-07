@@ -199,6 +199,12 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         recorder?.stopAndExport()
         }
     }
+    
+    @IBAction func capturePhoto(_ sender: UIButton) {
+        recorder?.livePhoto(export: true)
+        recorder?.export()
+    }
+    
     func runSystem() {
         let sun = SCNNode(geometry: SCNSphere(radius: 0.35))
         let mercuryParent = SCNNode()

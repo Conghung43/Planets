@@ -12,32 +12,24 @@
 		0BFBFC561F3AF5D5001C51C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BFBFC541F3AF5D5001C51C9 /* Main.storyboard */; };
 		0BFBFC581F3AF5D5001C51C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BFBFC571F3AF5D5001C51C9 /* Assets.xcassets */; };
 		0BFBFC5B1F3AF5D5001C51C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BFBFC591F3AF5D5001C51C9 /* LaunchScreen.storyboard */; };
-		2A8CA18120A03D2800DA679D /* ARVideoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8CA18020A03C5F00DA679D /* ARVideoKit.framework */; };
-		2A8CA18220A03D2800DA679D /* ARVideoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8CA18020A03C5F00DA679D /* ARVideoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2ABAAD9D209F430A003DF2D8 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABAAD9C209F430A003DF2D8 /* CameraController.swift */; };
+		2A8CA19B20A04D1400DA679D /* ARVideoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8CA19A20A04AD900DA679D /* ARVideoKit.framework */; };
+		2A8CA19C20A04D1400DA679D /* ARVideoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8CA19A20A04AD900DA679D /* ARVideoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2AC8C439209D9AC70097AF77 /* PopViewControlereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8C438209D9AC70097AF77 /* PopViewControlereViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2A8CA17F20A03C5F00DA679D /* PBXContainerItemProxy */ = {
+		2A8CA19920A04AD900DA679D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A8CA17B20A03C5E00DA679D /* ARVideoKit.xcodeproj */;
+			containerPortal = 2A8CA19520A04AD900DA679D /* ARVideoKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = FBD604DA1FA969DD00EC9804;
 			remoteInfo = ARVideoKit;
 		};
-		2A8CA18320A03D2800DA679D /* PBXContainerItemProxy */ = {
+		2A8CA19D20A04D1400DA679D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A8CA17B20A03C5E00DA679D /* ARVideoKit.xcodeproj */;
+			containerPortal = 2A8CA19520A04AD900DA679D /* ARVideoKit.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = FBD604D91FA969DD00EC9804;
-			remoteInfo = ARVideoKit;
-		};
-		2A8CA18920A041A100DA679D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A8CA18520A041A100DA679D /* ARVideoKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FBD604DA1FA969DD00EC9804;
 			remoteInfo = ARVideoKit;
 		};
 /* End PBXContainerItemProxy section */
@@ -49,7 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2A8CA18220A03D2800DA679D /* ARVideoKit.framework in Embed Frameworks */,
+				2A8CA19C20A04D1400DA679D /* ARVideoKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,9 +56,7 @@
 		0BFBFC571F3AF5D5001C51C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BFBFC5A1F3AF5D5001C51C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BFBFC5C1F3AF5D5001C51C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A8CA17B20A03C5E00DA679D /* ARVideoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ARVideoKit.xcodeproj; path = "../../../ARVideoKit-master/ARVideoKit.xcodeproj"; sourceTree = "<group>"; };
-		2A8CA18520A041A100DA679D /* ARVideoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ARVideoKit.xcodeproj; path = "../../ARVideoKit-master/ARVideoKit.xcodeproj"; sourceTree = "<group>"; };
-		2ABAAD9C209F430A003DF2D8 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		2A8CA19520A04AD900DA679D /* ARVideoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ARVideoKit.xcodeproj; path = "../../../Library/ARVideoKit-master/ARVideoKit.xcodeproj"; sourceTree = "<group>"; };
 		2AC8C438209D9AC70097AF77 /* PopViewControlereViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewControlereViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A8CA18120A03D2800DA679D /* ARVideoKit.framework in Frameworks */,
+				2A8CA19B20A04D1400DA679D /* ARVideoKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +77,6 @@
 			children = (
 				0BFBFC4F1F3AF5D5001C51C9 /* Planets */,
 				0BFBFC4E1F3AF5D5001C51C9 /* Products */,
-				2A8CA18520A041A100DA679D /* ARVideoKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,10 +91,9 @@
 		0BFBFC4F1F3AF5D5001C51C9 /* Planets */ = {
 			isa = PBXGroup;
 			children = (
-				2A8CA17B20A03C5E00DA679D /* ARVideoKit.xcodeproj */,
+				2A8CA19520A04AD900DA679D /* ARVideoKit.xcodeproj */,
 				0BFBFC501F3AF5D5001C51C9 /* AppDelegate.swift */,
 				0BFBFC521F3AF5D5001C51C9 /* ViewController.swift */,
-				2ABAAD9C209F430A003DF2D8 /* CameraController.swift */,
 				2AC8C438209D9AC70097AF77 /* PopViewControlereViewController.swift */,
 				0BFBFC541F3AF5D5001C51C9 /* Main.storyboard */,
 				0BFBFC571F3AF5D5001C51C9 /* Assets.xcassets */,
@@ -115,18 +103,10 @@
 			path = Planets;
 			sourceTree = "<group>";
 		};
-		2A8CA17C20A03C5E00DA679D /* Products */ = {
+		2A8CA19620A04AD900DA679D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A8CA18020A03C5F00DA679D /* ARVideoKit.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2A8CA18620A041A100DA679D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2A8CA18A20A041A100DA679D /* ARVideoKit.framework */,
+				2A8CA19A20A04AD900DA679D /* ARVideoKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,7 +126,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				2A8CA18420A03D2800DA679D /* PBXTargetDependency */,
+				2A8CA19E20A04D1400DA679D /* PBXTargetDependency */,
 			);
 			name = Planets;
 			productName = Planets;
@@ -181,12 +161,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2A8CA17C20A03C5E00DA679D /* Products */;
-					ProjectRef = 2A8CA17B20A03C5E00DA679D /* ARVideoKit.xcodeproj */;
-				},
-				{
-					ProductGroup = 2A8CA18620A041A100DA679D /* Products */;
-					ProjectRef = 2A8CA18520A041A100DA679D /* ARVideoKit.xcodeproj */;
+					ProductGroup = 2A8CA19620A04AD900DA679D /* Products */;
+					ProjectRef = 2A8CA19520A04AD900DA679D /* ARVideoKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -197,18 +173,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2A8CA18020A03C5F00DA679D /* ARVideoKit.framework */ = {
+		2A8CA19A20A04AD900DA679D /* ARVideoKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ARVideoKit.framework;
-			remoteRef = 2A8CA17F20A03C5F00DA679D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2A8CA18A20A041A100DA679D /* ARVideoKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ARVideoKit.framework;
-			remoteRef = 2A8CA18920A041A100DA679D /* PBXContainerItemProxy */;
+			remoteRef = 2A8CA19920A04AD900DA679D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -233,7 +202,6 @@
 			files = (
 				0BFBFC531F3AF5D5001C51C9 /* ViewController.swift in Sources */,
 				2AC8C439209D9AC70097AF77 /* PopViewControlereViewController.swift in Sources */,
-				2ABAAD9D209F430A003DF2D8 /* CameraController.swift in Sources */,
 				0BFBFC511F3AF5D5001C51C9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,10 +209,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2A8CA18420A03D2800DA679D /* PBXTargetDependency */ = {
+		2A8CA19E20A04D1400DA679D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ARVideoKit;
-			targetProxy = 2A8CA18320A03D2800DA679D /* PBXContainerItemProxy */;
+			targetProxy = 2A8CA19D20A04D1400DA679D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
