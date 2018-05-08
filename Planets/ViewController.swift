@@ -8,11 +8,13 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     var recorder:RecordAR?
     var turn : Bool = true
-    
     let timer = Each(1).seconds
     var second : Int = 0
     var minute : Int = 0
     var hour : Int = 0
+    let pipeRadiusValue : CGFloat = 0.001
+    let imagePicker = UIImagePickerController()
+    let configuration = ARWorldTrackingConfiguration()
     
     let positionArray : [CGFloat] = [0.7, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.4, 0.25]
     let radiusArray : [CGFloat]  = []
@@ -28,15 +30,13 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         "Đặt tên: Thần nông nghiệp La Mã. \n Đường kính: 120.500 km. \n Quỹ đạo: 29,5 năm Trái đất. \n Ngày: Khoảng 10,5 giờ Trái đất.",
         "Đặt tên: Vị thần bầu trời người Hy Lạp cổ. \n Đường kính: 51.120 km. \n Quỹ đạo: 84 năm Trái đất. \n Ngày: 18 giờ Trái đất.",
         "Đặt tên: Thần nước La Mã. \n Đường kính: 49.530 km. \n Quỹ đạo: 165 năm Trái đất. \n Ngày: 19 giờ Trái đất.", "Mặt Trăng"]
-    let pipeRadiusValue : CGFloat = 0.001
+
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var recButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var photoPicker: UIButton!
     
-    let imagePicker = UIImagePickerController()
-    
-    let configuration = ARWorldTrackingConfiguration()
+    //MARK: -----------      viewDidLoad      ----------------
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
@@ -58,11 +58,88 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //let configuration = ARWorldTrackingConfiguration()
+        recorder?.prepare(configuration)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        recorder?.rest()
+    }
+    
+    //MARK: ------------Show popever----------------
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PopView" {
+            let popVC = segue.destination
+            popVC.popoverPresentationController?.delegate = self
+            popVC.preferredContentSize = CGSize(width: 30, height: 300)
+            let popDataVC = segue.destination as! PopViewControlereViewController
+            popDataVC.delegateData = self
+        }
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    //MARK: ---------Action button-----------------------
     @IBAction func photoActionButton(_ sender: UIButton) {
         self.present(self.imagePicker, animated: true, completion: nil)
     }
+
+    @IBAction func startRecording(_ sender: UIButton) {
+        if turn == true {
+            second = 0
+            minute = 0
+            timeLabel.isHidden = false
+            recorder?.record()
+            setTimer()
+            turn = false
+            
+        }
+        else {
+            turn = true
+            recorder?.stopAndExport()
+            self.timeLabel.isHidden = true
+        }
+    }
     
+    @IBAction func capturePhoto(_ sender: UIButton) {
+        recorder?.livePhoto(export: true)
+        recorder?.export()
+    }
     
+    //MARK: ---------TapGestureRecognizer-------&------PinchGestureRecognizer-----------------
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        self.sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+            if node.isPaused == false {
+                node.isPaused = true
+                if node.name == "text" {
+                    node.isHidden = false
+                }
+            }
+            else {
+                node.isPaused = false
+                if node.name == "text" {
+                    node.isHidden = true
+                }
+            }
+        }
+    }
+    @objc func handlePinch(sender: UIPinchGestureRecognizer) {
+        let sceneView = sender.view as! ARSCNView
+        let pinchLocation = sender.location(in: sceneView)
+        let hitTest = sceneView.hitTest(pinchLocation)
+        
+        if !hitTest.isEmpty {
+            let results = hitTest.first!
+            let node = results.node
+            let pinchAction = SCNAction.scale(by: sender.scale, duration: 0)
+            node.runAction(pinchAction)
+            sender.scale = 1.0
+        }
+    }
+    //MARK: ----------------Choose planet function------------------
     func tabNumber(number: Int) {
         if number == 1 {
             sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
@@ -162,79 +239,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PopView" {
-            let popVC = segue.destination
-            popVC.popoverPresentationController?.delegate = self
-            popVC.preferredContentSize = CGSize(width: 30, height: 300)
-            let popDataVC = segue.destination as! PopViewControlereViewController
-            popDataVC.delegateData = self
-        }
-    }
-    
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
-    
-    @objc func handleTap(sender: UITapGestureRecognizer) {
-        self.sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
-            if node.isPaused == false {
-                node.isPaused = true
-                if node.name == "text" {
-                    node.isHidden = false
-                }
-            }
-            else {
-                node.isPaused = false
-                if node.name == "text" {
-                    node.isHidden = true
-                }
-            }
-        }
-    }
-    @objc func handlePinch(sender: UIPinchGestureRecognizer) {
-        let sceneView = sender.view as! ARSCNView
-        let pinchLocation = sender.location(in: sceneView)
-        let hitTest = sceneView.hitTest(pinchLocation)
-        
-        if !hitTest.isEmpty {
-            let results = hitTest.first!
-            let node = results.node
-            let pinchAction = SCNAction.scale(by: sender.scale, duration: 0)
-            node.runAction(pinchAction)
-            sender.scale = 1.0
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        //let configuration = ARWorldTrackingConfiguration()
-        recorder?.prepare(configuration)
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        recorder?.rest()
-    }
-    @IBAction func startRecording(_ sender: UIButton) {
-        if turn == true {
-            second = 0
-            minute = 0
-            timeLabel.isHidden = false
-            recorder?.record()
-            setTimer()
-            turn = false
-            
-        }
-        else {
-            turn = true
-            recorder?.stopAndExport()
-            self.timeLabel.isHidden = true
-        }
-    }
-    
-    @IBAction func capturePhoto(_ sender: UIButton) {
-        recorder?.livePhoto(export: true)
-        recorder?.export()
-    }
-    
+    //MARK: ----------Run solar system function ------------------------------
     func runSystem() {
         let sun = SCNNode(geometry: SCNSphere(radius: 0.35))
         let mercuryParent = SCNNode()
@@ -375,7 +380,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         uranusParent.addChildNode(uranusTextC)
         neptuneParent.addChildNode(neptuneTextC)
     }
-    
+    //MARK: -----------create planer node function---------------
     func planet(geometry: SCNGeometry, diffuse: UIImage?, specular: UIImage?, emission: UIImage?, normal: UIImage?, position: SCNVector3) -> SCNNode {
         let planet = SCNNode(geometry: geometry)
         planet.geometry?.firstMaterial?.diffuse.contents = diffuse
@@ -386,7 +391,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         return planet
         
     }
-    
+    //MARK: -----------create torus node function---------------
     func torus(geometry: SCNGeometry, diffuse: UIColor?) -> SCNNode {
         let torus = SCNNode(geometry: geometry)
         torus.geometry?.firstMaterial?.diffuse.contents = diffuse
@@ -394,7 +399,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         return torus
         
     }
-    
+    //MARK: -----------create text node function---------------
     func text(geometry: SCNGeometry, diffuse: UIColor?, position: SCNVector3) -> SCNNode {
         let text = SCNNode(geometry: geometry)
         text.geometry?.firstMaterial?.diffuse.contents = diffuse
@@ -415,13 +420,13 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         return text
     }
     
-    
+    //MARK: -----------Rotation---------------
     func Rotation(time: TimeInterval) -> SCNAction {
         let Rotation = SCNAction.rotateBy(x: 0, y: CGFloat(-360.degreesToRadians), z: 0, duration: time)
         let foreverRotation = SCNAction.repeatForever(Rotation)
         return foreverRotation
     }
-    
+    //MARK: -----------set timer---------------
     func setTimer() {
         self.timer.perform { () -> NextStep in
             self.second += 1
