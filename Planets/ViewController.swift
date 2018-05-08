@@ -2,11 +2,17 @@ import UIKit
 import ARKit
 import Photos
 import ARVideoKit
+import Each
 
-class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, PopDelegate {
+class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, PopDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var recorder:RecordAR?
     var turn : Bool = true
+    
+    let timer = Each(1).seconds
+    var second : Int = 0
+    var minute : Int = 0
+    var hour : Int = 0
     
     let positionArray : [CGFloat] = [0.7, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.4, 0.25]
     let radiusArray : [CGFloat]  = []
@@ -24,6 +30,12 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         "Đặt tên: Thần nước La Mã. \n Đường kính: 49.530 km. \n Quỹ đạo: 165 năm Trái đất. \n Ngày: 19 giờ Trái đất.", "Mặt Trăng"]
     let pipeRadiusValue : CGFloat = 0.001
     @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var recButton: UIButton!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var photoPicker: UIButton!
+    
+    let imagePicker = UIImagePickerController()
+    
     let configuration = ARWorldTrackingConfiguration()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +50,19 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         
         recorder = RecordAR(ARSceneKit: sceneView)
         
-    }
+        recButton.isHidden = true
+        timeLabel.isHidden = true
         
+        imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        imagePicker.sourceType = .photoLibrary
+        
+    }
+    
+    @IBAction func photoActionButton(_ sender: UIButton) {
+        self.present(self.imagePicker, animated: true, completion: nil)
+    }
+    
+    
     func tabNumber(number: Int) {
         if number == 1 {
             sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
@@ -192,11 +215,18 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     }
     @IBAction func startRecording(_ sender: UIButton) {
         if turn == true {
-        recorder?.record()
+            second = 0
+            minute = 0
+            timeLabel.isHidden = false
+            recorder?.record()
+            setTimer()
             turn = false
+            
         }
         else {
-        recorder?.stopAndExport()
+            turn = true
+            recorder?.stopAndExport()
+            self.timeLabel.isHidden = true
         }
     }
     
@@ -392,9 +422,32 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         return foreverRotation
     }
     
-    
-    
-    
+    func setTimer() {
+        self.timer.perform { () -> NextStep in
+            self.second += 1
+            if self.second == 60 {
+                self.second = 0
+                self.minute += 1
+            }
+            
+            self.timeLabel.text = " \(self.minute) : \(self.second)"
+            
+            if self.second % 2 != 0 {
+                self.recButton.isHidden = false
+            }
+            else {
+                self.recButton.isHidden = true
+            }
+            
+            if self.timeLabel.isHidden == true {
+                self.recButton.isHidden = true
+                self.timer.stop()
+            }
+            return .continue
+        }
+        
+        
+    }
 }
 extension Int {
     

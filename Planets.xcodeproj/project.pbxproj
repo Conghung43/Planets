@@ -12,6 +12,7 @@
 		0BFBFC561F3AF5D5001C51C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BFBFC541F3AF5D5001C51C9 /* Main.storyboard */; };
 		0BFBFC581F3AF5D5001C51C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BFBFC571F3AF5D5001C51C9 /* Assets.xcassets */; };
 		0BFBFC5B1F3AF5D5001C51C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BFBFC591F3AF5D5001C51C9 /* LaunchScreen.storyboard */; };
+		0D7EF7731EB5F1394211A1CE /* Pods_Planets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085627DE979D2FFE40B2A01 /* Pods_Planets.framework */; };
 		2A8CA19B20A04D1400DA679D /* ARVideoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8CA19A20A04AD900DA679D /* ARVideoKit.framework */; };
 		2A8CA19C20A04D1400DA679D /* ARVideoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8CA19A20A04AD900DA679D /* ARVideoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2AC8C439209D9AC70097AF77 /* PopViewControlereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8C438209D9AC70097AF77 /* PopViewControlereViewController.swift */; };
@@ -58,6 +59,9 @@
 		0BFBFC5C1F3AF5D5001C51C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A8CA19520A04AD900DA679D /* ARVideoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ARVideoKit.xcodeproj; path = "../../../Library/ARVideoKit-master/ARVideoKit.xcodeproj"; sourceTree = "<group>"; };
 		2AC8C438209D9AC70097AF77 /* PopViewControlereViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewControlereViewController.swift; sourceTree = "<group>"; };
+		7085627DE979D2FFE40B2A01 /* Pods_Planets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Planets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A69ED9D066A07F71FB46AB7E /* Pods-Planets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Planets/Pods-Planets.debug.xcconfig"; sourceTree = "<group>"; };
+		AE5DEA96BB1873677208EE76 /* Pods-Planets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planets.release.xcconfig"; path = "Pods/Target Support Files/Pods-Planets/Pods-Planets.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A8CA19B20A04D1400DA679D /* ARVideoKit.framework in Frameworks */,
+				0D7EF7731EB5F1394211A1CE /* Pods_Planets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +82,8 @@
 			children = (
 				0BFBFC4F1F3AF5D5001C51C9 /* Planets */,
 				0BFBFC4E1F3AF5D5001C51C9 /* Products */,
+				1B73DF075D70B4FD7F5800DA /* Pods */,
+				6533231C63CC078806E37204 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,12 +110,29 @@
 			path = Planets;
 			sourceTree = "<group>";
 		};
+		1B73DF075D70B4FD7F5800DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A69ED9D066A07F71FB46AB7E /* Pods-Planets.debug.xcconfig */,
+				AE5DEA96BB1873677208EE76 /* Pods-Planets.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2A8CA19620A04AD900DA679D /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				2A8CA19A20A04AD900DA679D /* ARVideoKit.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6533231C63CC078806E37204 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7085627DE979D2FFE40B2A01 /* Pods_Planets.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,10 +142,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BFBFC5F1F3AF5D5001C51C9 /* Build configuration list for PBXNativeTarget "Planets" */;
 			buildPhases = (
+				0DFCDE167C8CDA97505E133D /* [CP] Check Pods Manifest.lock */,
 				0BFBFC491F3AF5D5001C51C9 /* Sources */,
 				0BFBFC4A1F3AF5D5001C51C9 /* Frameworks */,
 				0BFBFC4B1F3AF5D5001C51C9 /* Resources */,
 				2A8CA17A20A020AA00DA679D /* Embed Frameworks */,
+				8783E93C8B9B7B7A2F1A6E91 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -194,6 +220,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DFCDE167C8CDA97505E133D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Planets-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8783E93C8B9B7B7A2F1A6E91 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Planets/Pods-Planets-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Each/Each.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Each.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Planets/Pods-Planets-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0BFBFC491F3AF5D5001C51C9 /* Sources */ = {
@@ -349,6 +414,7 @@
 		};
 		0BFBFC601F3AF5D5001C51C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A69ED9D066A07F71FB46AB7E /* Pods-Planets.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -368,6 +434,7 @@
 		};
 		0BFBFC611F3AF5D5001C51C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE5DEA96BB1873677208EE76 /* Pods-Planets.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
